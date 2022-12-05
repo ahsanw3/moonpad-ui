@@ -7,6 +7,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        screens: {
+          mb: '0px',
+        },
         lora: "'Jost', sans-serif",
       }
     },

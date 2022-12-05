@@ -1,6 +1,6 @@
-import React from "react";
-import TeamMember from "./TeamMember";
-import pic from "../images/profile-img.jpeg";
+import React from "react"
+import TeamMember from "./team/TeamMember"
+import pic from "../images/profile-img.jpeg"
 export default function Intro() {
   return (
     <div className=" font-lora text-white py-16">
@@ -23,7 +23,7 @@ export default function Intro() {
           <button type="buttom" className="bg-purple-900 mx-auto my-4 px-10 border-red-900 justify-center">MINT</button>
         </div>
 
-         <div className="w-[20%]  ">
+         <div className="w-[30%] my-1">
         <TeamMember image={pic} />
         </div>
       </div>
