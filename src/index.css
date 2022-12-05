@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bgp{
+  background-image: url("./images/bg3.jpg");
+  background-color: #CCCCCC;
+  width: 100%;
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-color: darkorchid;
+  background-blend-mode: multiply;
+}
