@@ -1,6 +1,6 @@
-import React from "react"
-import TeamMember from "./team/TeamMember"
-import pic from "../images/profile-img.jpeg"
+import React from "react";
+import HeroCard from "./HeroCard";
+
 export default function Intro() {
   return (
     <div className=" font-lora text-white py-16">
@@ -10,56 +10,15 @@ export default function Intro() {
         I'm about to ape into my own project
       </p>
 
-      <div className="flex flex-wrap font-lora mt-4 gap-14  lg::w-[50%] lg:h-[60%] mx-auto justify-center pt-10">
-        <div className="border-double text-center bg-slate-600/70 border-fuchsia-600  border-2 sm:col-span-6 col-span-12">
-          <h1 className="font-extrabold text-2xl pt-4 px-20"> TOTAL MINTED </h1>
-          <p className="text-xs font-semibold">The price is 0.042eth ETH + Gas Fee </p>
-          <p className="text-xs mt-4 font-semibold"> 534/1000 </p>
-          <div className="bg-black mx-16 rounded flex justify-around my-4">
-            <button type="button" className="font-semibold">-</button>
-            <p>2</p>
-            <button type="button" className=" font-semibold">+</button>
-          </div>
-          <button type="buttom" className="bg-purple-900 mx-auto my-4 px-10 border-red-900 justify-center">MINT</button>
-        </div>
 
-         <div className="w-[30%] my-1">
-        <TeamMember image={pic} />
-        </div>
+      <div className="py-20">
+      <HeroCard/>
       </div>
+
+
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // className="font-lora py-30 text-white w-[50%] mx-auto">
 //       <h1 className="text-2xl flex justify-center font-bold "> MINT </h1>

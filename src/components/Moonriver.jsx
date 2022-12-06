@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Moonriver() {
   return (
-    <div className="pt-28 mx-auto">
+    <div className="pt-10 mx-auto">
       <h1 className="pt-24 text-2xl flex justify-center font-bold">
         {" "}
         WHAT IS MOONRIVER{" "}
