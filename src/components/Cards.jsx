@@ -4,7 +4,7 @@ import { AiFillTwitterCircle } from "react-icons/ai"
 import { BsFacebook } from "react-icons/bs"
 export default function Cards() {
   return (
-    <div className="py-10 px-2 flex w-full">
+    <div className="py-10 px-2 flex justify-center w-full">
       <div className=" text-white font-lora block ring-0 p-1 ring-white ring-offset-2 ring-offset-transparent sm:w-[70%] rounded backdrop-blur-[80px]">
         <div className="mx-auto flex justify-between">
           <div>

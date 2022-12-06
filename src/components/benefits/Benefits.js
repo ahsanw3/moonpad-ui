@@ -15,7 +15,7 @@ function Benefits({ all_benefits }) {
         </div>
       </div>
 
-      <div className="object-contain">
+      <div className="object-contain w-[40%]">
         <TeamMember image={pic} className='object-scale-down'/>
       </div>
 

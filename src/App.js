@@ -7,7 +7,6 @@ import RoadMap from './components/roadmap/RoadMap'
 import Team from './components/team/Team'
 import FAQ from './components/faq/FAQ'
 import Footer from './components/footer/Footer'
-import Benefits from './components/benefits/Benefits';
 
 const App = () => {
   return (
@@ -23,11 +22,11 @@ const App = () => {
             <div className="lg:col-span-4 md:col-span-6 col-span-12"><Cards/></div>
           </div>
         </div>
-        <Benefits
+        {/* <Benefits
           all_benefits={[
             'Will get the first slot of every INO on our platform', 'Get airdrop from each project on our platform', 'You can sell your Chimps on any nft marketplace ar your desired price', 'Once we reach 20 projects launched on moonpad, we shall develop our smart contract', 'And mint total supply of 10k tokens', '50% will be airdrop to our NFT holders', '10% for the team, locked for 6 months', '20% for the marketing and further development. Locked through smart contracts', 'And when neended monthly', '5% airdrop to all our platform users', '15% exchange liquidity'
           ]}
-        />
+        /> */}
         <RoadMap />
         <Team />
         <FAQ />
