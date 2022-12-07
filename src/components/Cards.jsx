@@ -4,8 +4,7 @@ import { AiFillTwitterCircle } from "react-icons/ai"
 import { BsFacebook } from "react-icons/bs"
 export default function Cards() {
   return (
-    <div className="py-10 px-2 flex justify-center w-full">
-      <div className=" text-white font-lora block ring-0 p-1 ring-white ring-offset-2 ring-offset-transparent sm:w-[70%] rounded">
+      <div className="my-10 text-white font-lora block ring-0 p-1 ring-white ring-offset-2 ring-offset-transparent sm:w-[70%] rounded">
         <div className=" flex justify-between">
           <div>
             <h1 className="font-bold">Arena Games</h1>
@@ -70,14 +69,14 @@ export default function Cards() {
             $25.11{" "}
           </p>
         </div>
-        <div className="relative flex py-5 items-center">
+        <div className="relative flex items-center">
           <div className=" mx-2  border-t border-gray-400"></div>
         </div>
+        <div className=" px-2 my-5 flex-grow border-t border-gray-400"></div>
         <p className=" flex justify-center text-sm font-semibold mb-2">
           {" "}
           KYC: In review C{" "}
         </p>
       </div>
-    </div>
   );
 }
