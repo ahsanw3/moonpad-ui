@@ -19,8 +19,13 @@ const Navbar = () => {
           <li className='p-4 '>ROADMAP</li>
           <li className='p-4 '>TEAM</li>
           <li className='p-4'>LAUNCHPAD</li>
+          <li className='p-4'>FAQ</li>
+
 
       </ul>
+
+
+
       <div onClick={handleNav} className='block md:hidden'>
           {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20} />}
       </div>
@@ -33,6 +38,13 @@ const Navbar = () => {
           <li className='p-4 border-b border-gray-600'>LAUNCHPAD</li>
           <li className='p-4'>FAQ</li>
       </ul>
+
+      <button
+          type="button "
+          className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold md:px-10 border border-gray-400 rounded shadow small ml-10 sm:w-[35%] py-3  ">
+             CREATE WALLET
+        </button>
+
     </div>
   );
 };
