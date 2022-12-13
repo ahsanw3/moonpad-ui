@@ -1,12 +1,13 @@
-import './App.css'
+import ArenaGameCard from "./components/arena_game_card/ArenaGameCard";
+import Footer from './components/footer/Footer'
+import FAQ from './components/faq/FAQ'
 import Header from './components/Header'
 import Intro from './components/Intro'
 import Moonriver from './components/Moonriver'
 import RoadMap from './components/roadmap/RoadMap'
 import Team from './components/team/Team'
-import FAQ from './components/faq/FAQ'
-import Footer from './components/footer/Footer'
-import ArenaGameCard from "./components/arena_game_card/ArenaGameCard";
+
+import './App.css'
 
 const App = () => {
   return (

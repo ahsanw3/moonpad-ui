@@ -1,11 +1,11 @@
 import RoadmapCard from './RoadmapCard'
 
-const LeftCard = ({ heading, list }) => {
+const LeftCard = ({ list_item }) => {
   return (
     <>
       <div className="flex mb:max-sm:flex-row-reverse mb:max-sm:justify-end sm:justify-start sm:w-full">
         <div className="sm:w-[45%] sm:flex sm:justify-end">
-          <RoadmapCard heading={heading} list={list} />
+          <RoadmapCard list_item={list_item} />
         </div>
         <div className="sm:pl-[1.5%] pt-[5%]">
           <svg

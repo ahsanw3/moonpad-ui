@@ -1,6 +1,6 @@
 import RoadmapCard from './RoadmapCard'
 
-function RightCard({ heading, list }) {
+function RightCard({ list_item }) {
   return (
     <>
       <div className="flex sm:justify-end sm:w-full">
@@ -20,7 +20,7 @@ function RightCard({ heading, list }) {
           </svg>
         </div>
         <div className="sm:w-[45%] sm:flex sm:justify-start">
-          <RoadmapCard heading={heading} list={list} />
+          <RoadmapCard list_item={list_item} />
         </div>
       </div>
     </>

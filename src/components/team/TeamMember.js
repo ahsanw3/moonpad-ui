@@ -1,4 +1,4 @@
-const TeamMember = ({ image, name, designation }) => {
+const TeamMember = ({ team_member:{image, name, designation} }) => {
   return (
     <div className="pb-5 text-white">
       <div className="ring-0 p-2 ring-purple-800/90 ring-offset-[2px] ring-offset-transparent bg-slate-50/10 xl:ring-offset-[5px] xl:p-[10px]">
