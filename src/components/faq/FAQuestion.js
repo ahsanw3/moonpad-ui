@@ -15,6 +15,6 @@ const FAQuestion = ({ question }) => {
         />
       </svg>
     </div>
-  )
-}
-export default FAQuestion
+  );
+};
+export default FAQuestion;

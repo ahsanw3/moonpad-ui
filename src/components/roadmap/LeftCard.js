@@ -1,8 +1,13 @@
-import RoadmapCard from './RoadmapCard'
-
+import RoadmapCard from "./RoadmapCard";
+import "aos/dist/aos.css";
+import Aos from "aos";
+import { useEffect } from "react";
 const LeftCard = ({ heading, list }) => {
+  useEffect(() => {
+    Aos.init();
+  });
   return (
-    <>
+    <div data-aos="fade-right" data-aos-duration="3000">
       <div className="flex mb:max-sm:flex-row-reverse mb:max-sm:justify-end sm:justify-start sm:w-full">
         <div className="sm:w-[45%] sm:flex sm:justify-end">
           <RoadmapCard heading={heading} list={list} />
@@ -23,7 +28,7 @@ const LeftCard = ({ heading, list }) => {
           </svg>
         </div>
       </div>
-    </>
-  )
-}
-export default LeftCard
+    </div>
+  );
+};
+export default LeftCard;

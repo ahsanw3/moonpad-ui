@@ -8,7 +8,7 @@
   width: 100%;
   background-size: cover;
   background-repeat: repeat-y;
-  background-color: darkorchid;
+  background-color: #9932cc;
   background-blend-mode: multiply;
 }
 
@@ -26,3 +26,5 @@
   .custom-number-input button:focus {
     outline: none !important;
   }
+
+ 

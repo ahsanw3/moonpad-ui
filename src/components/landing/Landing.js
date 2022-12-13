@@ -1,9 +1,15 @@
+import { Animator, ScrollPage, Move } from "react-scroll-motion";
+
 const Landing = () => {
   return (
     <div className=" pt-60 pb-20  justify-center">
       <div className="font-bold xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl">
-        <h1 className="flex justify-center "> THE FIRST INO LAUNCHPAD</h1>
-        <h1 className="flex justify-center ">ON MOONBEAM</h1>
+        <ScrollPage>
+          <Animator animation={Move(0, 0, 0, 800)}>
+            <h1 className="flex justify-center "> THE FIRST INO LAUNCHPAD</h1>
+            <h1 className="flex justify-center ">ON MOONBEAM</h1>
+          </Animator>
+        </ScrollPage>
       </div>
       <div className="lg:text-xl sm:text-xs  font-semibold pt-10 ">
         <div className="sm:flex sm:justify-center gap-1">
