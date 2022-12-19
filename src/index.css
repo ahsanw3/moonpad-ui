@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .bgp{
-  background-image: url("./images/bg3.jpg");
-  background-color: #CCCCCC;
+  /* background-image: url("./images/bg3.jpg"); */
+  /* background-color: #CCCCCC; */
   width: 100%;
   background-size: cover;
   background-repeat: repeat-y;
-  background-color: #9932cc;
+  /* background-color: #9932cc; */
   background-blend-mode: multiply;
 }
 
@@ -28,3 +28,15 @@
   }
 
  
+  canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -9999;
+    background: #9932cc;
+    background-color: #9932cc;
+    /* background-image: url("./images/bg3.jpg"); */
+    /* background-color: #CCCCCC; */
+  }

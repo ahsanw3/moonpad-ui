@@ -7,7 +7,7 @@ const LeftCard = ({ heading, list }) => {
     Aos.init();
   });
   return (
-    <div data-aos="fade-right" data-aos-duration="3000">
+    <div data-aos="fade-right" data-aos-duration="2000">
       <div className="flex mb:max-sm:flex-row-reverse mb:max-sm:justify-end sm:justify-start sm:w-full">
         <div className="sm:w-[45%] sm:flex sm:justify-end">
           <RoadmapCard heading={heading} list={list} />

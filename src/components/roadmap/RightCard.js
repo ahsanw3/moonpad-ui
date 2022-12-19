@@ -7,7 +7,7 @@ function RightCard({ heading, list }) {
     Aos.init();
   });
   return (
-    <div data-aos="fade-left" data-aos-duration="3000">
+    <div data-aos="fade-left" data-aos-duration="2000">
       <div className="flex sm:justify-end sm:w-full">
         <div className="sm:pr-[1%] pt-[5%]">
           <svg
