@@ -2,7 +2,6 @@ import LeftCard from "./LeftCard";
 import RightCard from "./RightCard";
 import "aos/dist/aos.css";
 // import { useEffect } from "react";
-import Aos from "aos";
 
 const RoadMap = () => {
   // useEffect(() => {

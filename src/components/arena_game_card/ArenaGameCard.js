@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 
 const ArenaGameCard = () => {
   return (
-    <div className="ring-0 p-1 ring-white ring-offset-2 ring-offset-transparent rounded backdrop-blur-[80px] p-5 sm:space-y-5 mb:space-y-3">
+    <div className="ring-0 ring-white ring-offset-2 ring-offset-transparent rounded backdrop-blur-[80px] p-5 sm:space-y-5 mb:space-y-3">
       <div className="flex justify-between">
         <div>
           <h1 className="font-bold mx-2">Arena Games</h1>
