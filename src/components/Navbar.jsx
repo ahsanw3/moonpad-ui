@@ -1,14 +1,26 @@
 //
+import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
-import React, { useState } from 'react'
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-
-const Navbar = () => {
-  const [nav, setNav] = useState(false)
+const Navbar = ({
+  wallet,
+  logout,
+  disconnect,
+  setUserMintedAmount,
+  setMaxMintAmount,
+  setPrice,
+  setImages,
+  connection,
+  readContract,
+  getTokens,
+}) => {
+  const [nav, setNav] = useState(false);
+  const navigate = useNavigate();
 
   const handleNav = () => {
-    setNav(!nav)
-  }
+    setNav(!nav);
+  };
 
   return (
     <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white sticky z-20">
@@ -28,8 +40,8 @@ const Navbar = () => {
       <ul
         className={
           nav
-            ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#161631] ease-in-out duration-500'
-            : 'ease-in-out duration-500 fixed left-[-100%]'
+            ? "fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#161631] ease-in-out duration-500"
+            : "ease-in-out duration-500 fixed left-[-100%]"
         }
       >
         <h1 className="w-full text-3xl font-bold m-4">MOONPAD</h1>
@@ -43,12 +55,30 @@ const Navbar = () => {
 
       <button
         type="button "
-        className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold md:px-10 border border-gray-400 rounded shadow small ml-10 sm:w-[35%] py-3  "
+        className={`hover:bg-gray-100 hover:text-red-900 text-white font-semibold md:px-10 border border-gray-400 rounded shadow small ml-10 sm:w-[35%] py-3 ${
+          logout ? "hover:before:content-['Disconnect:']" : ""
+        }`}
+        onClick={() => {
+          logout
+            ? (async function () {
+                await disconnect();
+                await setUserMintedAmount(0);
+                await setMaxMintAmount("-");
+                await setPrice("-");
+                await setImages([]);
+              })()
+            : (async function () {
+                await connection();
+                await readContract();
+                await getTokens();
+                navigate("/mint");
+              })();
+        }}
       >
-        CREATE WALLET
+        {wallet}
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

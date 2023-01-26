@@ -36,7 +36,7 @@ function Models() {
   earth.position.setY(-10);
 
   const particlesGeometry = new THREE.BufferGeometry();
-  const particlesCount = 40000;
+  const particlesCount = 10000;
   const postArray = new Float32Array(particlesCount * 100);
 
   for (let i = 0; i < particlesCount; i++) {
@@ -49,6 +49,7 @@ function Models() {
   );
   const material = new THREE.PointsMaterial({
     size: 0.05,
+
   });
   const particlesMesh = new THREE.Points(particlesGeometry, material);
 
