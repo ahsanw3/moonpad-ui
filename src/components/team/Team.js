@@ -1,8 +1,8 @@
 import { Carousel } from "antd";
 import { motion } from "framer-motion";
 
-import profileImage from "../../images/profile-img.jpeg";
 import TeamMember from "./TeamMember";
+import { teamMembers } from "../../content/team";
 
 const Team = () => {
   var settings = {
@@ -37,86 +37,24 @@ const Team = () => {
       </p>
 
       <Carousel autoplay={true} autoplaySpeed={2500} speed={7000} {...settings}>
-        <div>
-          <motion.div whileHover={{ scale: 0.9 }} className="mx-5 my-5">
-            <TeamMember
-              image={profileImage}
-              name={"Tnip"}
-              designation={"Founder"}
-              index="1"
-            />
-          </motion.div>
-        </div>
-        <motion.div whileHover={{ scale: 0.9 }}>
-          <div className="mx-5 my-5">
-            <TeamMember
-              image={profileImage}
-              name={"Lil'Misfit"}
-              designation={"Co-Founder"}
-              index="2"
-            />
-          </div>
-        </motion.div>
-        <motion.div whileHover={{ scale: 0.9 }}>
-          <div className="mx-5 my-5">
-            <TeamMember
-              image={profileImage}
-              name={"Egg"}
-              designation={"Marketing"}
-              index="3"
-            />
-          </div>
-        </motion.div>
-        <motion.div whileHover={{ scale: 0.9 }}>
-          <div className="mx-5 my-5">
-            <TeamMember
-              image={profileImage}
-              name={"Qais"}
-              designation={"UI-designer"}
-              index="4"
-            />
-          </div>
-        </motion.div>
-        <motion.div whileHover={{ scale: 0.9 }}>
-          <div className="mx-5 my-5">
-            <TeamMember
-              image={profileImage}
-              name={"Tnip"}
-              designation={"Founder"}
-              index="5"
-            />
-          </div>
-        </motion.div>
-        <motion.div whileHover={{ scale: 0.9 }}>
-          <div className="mx-5 my-5">
-            <TeamMember
-              image={profileImage}
-              name={"Lil'Misfit"}
-              designation={"Co-Founder"}
-              index="6"
-            />
-          </div>
-        </motion.div>
-        <motion.div whileHover={{ scale: 0.9 }}>
-          <div className="mx-5 my-5">
-            <TeamMember
-              image={profileImage}
-              name={"Egg"}
-              designation={"Marketing"}
-              index="7"
-            />
-          </div>
-        </motion.div>
-        <motion.div whileHover={{ scale: 0.9 }}>
-          <div className="mx-5 my-5">
-            <TeamMember
-              image={profileImage}
-              name={"Qais"}
-              designation={"UI-designer"}
-              index="8"
-            />
-          </div>
-        </motion.div>
+        {teamMembers.map((memberDetails, key) => {
+          return (
+            <div>
+              <motion.div
+                whileHover={{ scale: 0.9 }}
+                className="mx-5 my-5"
+                key={key}
+              >
+                <TeamMember
+                  image={memberDetails.image}
+                  name={memberDetails.name}
+                  designation={memberDetails.designation}
+                  index={memberDetails.index}
+                />
+              </motion.div>
+            </div>
+          );
+        })}
       </Carousel>
     </div>
   );

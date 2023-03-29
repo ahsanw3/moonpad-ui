@@ -1,5 +1,11 @@
 import LeftCard from "./LeftCard";
 import RightCard from "./RightCard";
+import {
+  rightCard1,
+  rightCard2,
+  leftCard1,
+  leftCard2,
+} from "../../content/roadmap";
 
 import "aos/dist/aos.css";
 
@@ -10,42 +16,10 @@ const RoadMap = () => {
         Road Map
       </h1>
       <div className="absolute border-opacity-20 border-gray-100 h-[100%] border-[5px] left-[7%] sm:absolute sm:border-opacity-20 sm:border-gray-100 xl:h-[105%] sm:border-[5px] sm:left-[50%]"></div>
-      <RightCard
-        heading={"Quarter 1"}
-        list={[
-          "NFT Launchpad (Moonriver)",
-          "Avalanche Integration",
-          "Binance Integration",
-          "Ethereum Integration",
-          "Marketing and Partnership Announcement",
-        ]}
-      />
-
-      <LeftCard
-        heading={"Quarter 2"}
-        list={[
-          "NFT Swap",
-          "NFT Farming",
-          "Listing on CEX and DEX",
-          "Listing on Coingecko and Coinmarketcap",
-          "Marketing and Partnership Announcement",
-        ]}
-      />
-
-      <RightCard
-        heading={"Quarter 3"}
-        list={[
-          "Staking Launch",
-          "Farming Launch",
-          "Binance Integration",
-          " Strategic Partnership and Marketing",
-        ]}
-      />
-
-      <LeftCard
-        heading={"Quarter 4"}
-        list={["Integrating Launchpad for IGO", "Research and Development"]}
-      />
+      <RightCard heading={rightCard1.heading} list={rightCard1.itemList} />
+      <LeftCard heading={leftCard1.heading} list={leftCard1.itemList} />
+      <RightCard heading={rightCard2.heading} list={rightCard2.itemList} />
+      <LeftCard heading={leftCard2.heading} list={leftCard2.itemList} />
     </div>
   );
 };

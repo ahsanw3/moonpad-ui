@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 import ArenaGameCard from "./components/arena_game_card/ArenaGameCard";
+import { ArenaGameCards } from "./content/ArenaGameCard";
 import { ContractABI } from "../src/content/mint/contract";
 import FAQ from "./components/faq/FAQ";
 import Footer from "./components/footer/Footer";
@@ -161,34 +162,30 @@ const App = () => {
                       <Intro />
                       <Moonriver />
                       <div className="flex flex-wrap justify-center gap-10">
-                        <div
-                          data-aos="zoom-in"
-                          data-aos-duration="3000"
-                          data-aos-easing="ease-out-cubic"
-                        >
-                          <ArenaGameCard />
-                        </div>
-                        <div
-                          data-aos="zoom-in"
-                          data-aos-duration="3000"
-                          data-aos-easing="ease-out-cubic"
-                        >
-                          <ArenaGameCard />
-                        </div>
-                        <div
-                          data-aos="zoom-in"
-                          data-aos-duration="3000"
-                          data-aos-easing="ease-out-cubic"
-                        >
-                          <ArenaGameCard />
-                        </div>
-                        <div
-                          data-aos="zoom-in"
-                          data-aos-duration="3000"
-                          data-aos-easing="ease-out-cubic"
-                        >
-                          <ArenaGameCard />
-                        </div>
+                        {ArenaGameCards.map((cardData, key) => {
+                          return (
+                            <div
+                              data-aos="zoom-in"
+                              data-aos-duration="3000"
+                              data-aos-easing="ease-out-cubic"
+                              key={key}
+                            >
+                              <ArenaGameCard
+                                title={cardData.title}
+                                coin={cardData.coin}
+                                description={cardData.description}
+                                date={cardData.date}
+                                price={cardData.price}
+                                closeDate={cardData.closeDate}
+                                amount={cardData.amount}
+                                amountArn={cardData.amountArn}
+                                raise={cardData.raise}
+                                usd={cardData.usd}
+                                review={cardData.review}
+                              />
+                            </div>
+                          );
+                        })}
                       </div>
                       <RoadMap />
                       <Team />

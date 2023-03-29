@@ -1,3 +1,5 @@
+import { footerDetails } from "../../content/footer";
+
 const Footer = () => {
   return (
     <div className="py-5 text-white h-full">
@@ -9,7 +11,7 @@ const Footer = () => {
           Contact Us
         </p>
         <p className="font-bold text-xs flex justify-center pb-3 md:text-sm xl:text-base">
-          info@dingbotnft.com
+          {footerDetails.email}
         </p>
         <div className="flex justify-center gap-4 pt-1 pb-5 md:gap-7 xl:gap-10">
           <svg
@@ -46,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-[10px] flex justify-center md:text-xs xl:text-sm">
-        Copyright © 2021. All rights reserved.
+        {footerDetails.copywrite}
       </p>
     </div>
   );

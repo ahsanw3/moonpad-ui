@@ -1,0 +1,58 @@
+export const ArenaGameCards = [
+  {
+    title: "Arena Games",
+    coin: "$Arn",
+    description:
+      "Arenum is the evolution of mobile gaming and crypto which has feure-rich",
+    date: "Jan 17, 11.00 UTC",
+    price: "!ARN 0.375 $USD",
+    closeDate: "Registration closes in 12 hours, 9 minutes",
+    amount: "0 busd",
+    amountArn: "0/544 444 Arn",
+    raise: "$200 049",
+    usd: "$25.11",
+    review: "KYC: In review C",
+  },
+  {
+    title: "Arena Games",
+    coin: "$Arn",
+    description:
+      "Arenum is the evolution of mobile gaming and crypto which has feure-rich",
+    date: "Jan 17, 11.00 UTC",
+    price: "!ARN 0.375 $USD",
+    closeDate: "Registration closes in 12 hours, 9 minutes",
+    amount: "0 busd",
+    amountArn: "0/544 444 Arn",
+    raise: "$200 049",
+    usd: "$25.11",
+    review: "KYC: In review C",
+  },
+  {
+    title: "Arena Games",
+    coin: "$Arn",
+    description:
+      "Arenum is the evolution of mobile gaming and crypto which has feure-rich",
+    date: "Jan 17, 11.00 UTC",
+    price: "!ARN 0.375 $USD",
+    closeDate: "Registration closes in 12 hours, 9 minutes",
+    amount: "0 busd",
+    amountArn: "0/544 444 Arn",
+    raise: "$200 049",
+    usd: "$25.11",
+    review: "KYC: In review C",
+  },
+  {
+    title: "Arena Games",
+    coin: "$Arn",
+    description:
+      "Arenum is the evolution of mobile gaming and crypto which has feure-rich",
+    date: "Jan 17, 11.00 UTC",
+    price: "!ARN 0.375 $USD",
+    closeDate: "Registration closes in 12 hours, 9 minutes",
+    amount: "0 busd",
+    amountArn: "0/544 444 Arn",
+    raise: "$200 049",
+    usd: "$25.11",
+    review: "KYC: In review C",
+  },
+];
