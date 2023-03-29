@@ -4,10 +4,10 @@ const RoadmapCard = ({ heading, list }) => {
       <h1 className="uppercase pb-2 text-lg xl:text-2xl">{heading}</h1>
       <ul className="text-xs space-y-2 pl-4 list-disc xl:text-base">
         {list.map((item, index) => {
-          return <li key={index}>{item}</li>
+          return <li key={index}>{item}</li>;
         })}
       </ul>
     </div>
-  )
-}
-export default RoadmapCard
+  );
+};
+export default RoadmapCard;

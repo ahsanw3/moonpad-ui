@@ -1,10 +1,12 @@
-import profileImage from "../images/arcane.jpg";
 import { motion } from "framer-motion";
+
+import profileImage from "../../images/arcane.jpg";
+
 const HeroCard = () => {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}
-      className="sm:flex border-2 border-purple-800 rounded"
+      className="sm:flex border-2 border-purple-800 rounded text-white"
     >
       <div className="sm:w-2/5">
         <img src={profileImage} alt="profile" />

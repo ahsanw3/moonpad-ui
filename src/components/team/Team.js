@@ -1,7 +1,9 @@
-import profileImage from "../../images/profile-img.jpeg";
-import TeamMember from "./TeamMember";
 import { Carousel } from "antd";
 import { motion } from "framer-motion";
+
+import profileImage from "../../images/profile-img.jpeg";
+import TeamMember from "./TeamMember";
+
 const Team = () => {
   var settings = {
     slidesToShow: 3,

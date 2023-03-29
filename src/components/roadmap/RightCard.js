@@ -1,11 +1,15 @@
-import RoadmapCard from "./RoadmapCard";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import Aos from "aos";
+import { useEffect } from "react";
+
+import RoadmapCard from "./RoadmapCard";
+
+import "aos/dist/aos.css";
+
 function RightCard({ heading, list }) {
   useEffect(() => {
     Aos.init();
   });
+
   return (
     <div data-aos="fade-left" data-aos-duration="2000">
       <div className="flex sm:justify-end sm:w-full">

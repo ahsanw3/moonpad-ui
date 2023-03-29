@@ -1,5 +1,6 @@
 import React from "react";
-import HeroCard from "./HeroCard";
+
+import HeroCard from "../HeroCard";
 
 export default function Intro() {
   return (
@@ -9,13 +10,9 @@ export default function Intro() {
         {" "}
         I'm about to ape into my own project
       </p>
-
-
       <div className="py-20">
-      <HeroCard/>
+        <HeroCard />
       </div>
-
-
     </div>
   );
 }

@@ -2,7 +2,9 @@ import React from "react";
 import * as THREE from "three";
 import { TextureLoader } from "three";
 import { useLoader } from "@react-three/fiber";
+
 import EarthNightMap from "../../images/bg3.jpg";
+
 function Models() {
   const [cloudsMap] = useLoader(TextureLoader, [EarthNightMap]);
 
@@ -18,6 +20,7 @@ function Models() {
   const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector("#bg"),
   });
+
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0x9932cc, 0);
@@ -25,18 +28,19 @@ function Models() {
   camera.position.setX(-30);
   camera.position.setZ(20);
 
-  const earthGeometry = new THREE.SphereGeometry(8, 90, 90);
+  const earthGeometry = new THREE.SphereGeometry(4, 90, 90);
   const earthMaterial = new THREE.MeshPhongMaterial({
     side: THREE.DoubleSide,
     map: cloudsMap,
     opacity: 1,
   });
+
   const earth = new THREE.Mesh(earthGeometry, earthMaterial);
   earth.position.setX(-30);
   earth.position.setY(-10);
 
   const particlesGeometry = new THREE.BufferGeometry();
-  const particlesCount = 40000;
+  const particlesCount = 10000;
   const postArray = new Float32Array(particlesCount * 100);
 
   for (let i = 0; i < particlesCount; i++) {
@@ -47,9 +51,11 @@ function Models() {
     "position",
     new THREE.BufferAttribute(postArray, 3)
   );
+
   const material = new THREE.PointsMaterial({
     size: 0.05,
   });
+
   const particlesMesh = new THREE.Points(particlesGeometry, material);
 
   scene.add(earth, particlesMesh);
@@ -59,6 +65,7 @@ function Models() {
 
   const ambientLight = new THREE.AmbientLight(0xffffff);
   scene.add(ambientLight, pointLight);
+
   function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
     earth.rotation.x = t * 0.001;
@@ -75,14 +82,33 @@ function Models() {
     particlesMesh.position.x = mouseX * 0.009;
     particlesMesh.position.y = -mouseY * 0.009;
   }
-  moveCamera();
+
   function animate() {
     requestAnimationFrame(animate);
     earth.rotation.y += 0.005;
     renderer.render(scene, camera);
   }
+
+  function resize() {
+    const container = renderer.domElement.parentNode;
+
+    if (container) {
+      const width = container.offsetWidth;
+      const height = container.offsetHeight;
+
+      renderer.setSize(width, height);
+
+      camera.aspect = width / height;
+
+      camera.updateProjectionMatrix();
+    }
+  }
+
+  moveCamera();
   animate();
-  return <div></div>;
+  window.addEventListener("resize", resize);
+
+  return <div className="h-auto w-auto bg-black"></div>;
 }
 
 export default Models;

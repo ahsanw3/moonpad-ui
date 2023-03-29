@@ -1,14 +1,19 @@
-import FAQuestion from "./FAQuestion";
-import { Collapse } from "antd";
-import FAQAnswer from "./FAQAnswer";
-import { useEffect } from "react";
 import Aos from "aos";
+import { Collapse } from "antd";
+import { useEffect } from "react";
+
+import FAQAnswer from "./FAQAnswer";
+import FAQuestion from "./FAQuestion";
+
 import "aos/dist/aos.css";
+
 const { Panel } = Collapse;
+
 const FAQ = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   });
+
   return (
     <div className="py-5 md:py-10">
       <div className="uppercase text-2xl font-bold md:text-3xl lg:text-4xl 2xl:text-5xl">
