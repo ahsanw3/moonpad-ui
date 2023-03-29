@@ -1,5 +1,7 @@
-import profileImage from "../images/arcane.jpg";
 import { motion } from "framer-motion";
+
+import profileImage from "../../images/arcane.jpg";
+
 const HeroCard = () => {
   return (
     <motion.div

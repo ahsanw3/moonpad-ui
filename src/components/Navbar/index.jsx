@@ -1,19 +1,14 @@
-//
-import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({
-  wallet,
-  logout,
-  disconnect,
-  setUserMintedAmount,
-  setMaxMintAmount,
-  setPrice,
-  setImages,
   connection,
-  readContract,
+  disconnect,
   getTokens,
+  logout,
+  readContract,
+  wallet,
 }) => {
   const [nav, setNav] = useState(false);
   const navigate = useNavigate();
@@ -23,18 +18,34 @@ const Navbar = ({
   };
 
   return (
-    <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white sticky z-20">
-      <h1 className="w-full text-3xl font-bold font-lora">MOONPAD</h1>
-      <ul className="hidden md:flex">
-        <li className="p-4">HOME</li>
-        <li className="p-4  ">MINT</li>
+    <div className="bg-black font-lora flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white sticky z-20">
+      <h1 className=" w-full text-3xl font-bold font-lora">MOONPAD</h1>
+      <ul className="hidden lg:flex ">
+        <li className="p-4">
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            HOME
+          </button>
+        </li>
+        <li className="p-4  ">
+          <button
+            onClick={() => {
+              navigate("/mint");
+            }}
+          >
+            MINT
+          </button>
+        </li>
         <li className="p-4 ">ROADMAP</li>
         <li className="p-4 ">TEAM</li>
         <li className="p-4">LAUNCHPAD</li>
         <li className="p-4">FAQ</li>
       </ul>
 
-      <div onClick={handleNav} className="block md:hidden">
+      <div onClick={handleNav} className="block lg:hidden">
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
       <ul
@@ -45,8 +56,24 @@ const Navbar = ({
         }
       >
         <h1 className="w-full text-3xl font-bold m-4">MOONPAD</h1>
-        <li className="p-4 border-b border-gray-600">HOME</li>
-        <li className="p-4 border-b border-gray-600">MINT</li>
+        <li className="p-4 border-b border-gray-600">
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            HOME
+          </button>
+        </li>
+        <li className="p-4 border-b border-gray-600">
+          <button
+            onClick={() => {
+              navigate("/mint");
+            }}
+          >
+            MINT
+          </button>
+        </li>
         <li className="p-4 border-b border-gray-600">ROADMAP</li>
         <li className="p-4 border-b border-gray-600">TEAM</li>
         <li className="p-4 border-b border-gray-600">LAUNCHPAD</li>
@@ -62,10 +89,6 @@ const Navbar = ({
           logout
             ? (async function () {
                 await disconnect();
-                await setUserMintedAmount(0);
-                await setMaxMintAmount("-");
-                await setPrice("-");
-                await setImages([]);
               })()
             : (async function () {
                 await connection();

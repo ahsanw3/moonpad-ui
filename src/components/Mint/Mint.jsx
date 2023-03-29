@@ -1,23 +1,22 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { ContractABI } from "./contract";
+import { toast } from "react-toastify";
 
+import { ContractABI } from "../../content/mint/contract";
 import profileImage from "../../images/arcane.jpg";
 
+import "react-toastify/dist/ReactToastify.css";
+
 function Mint({
-  wallet,
-  price,
-  images,
-  userMintedAmount,
-  maxMintAmount,
-  disconnect,
   connection,
-  readContract,
+  disconnect,
   getTokens,
+  images,
+  maxMintAmount,
+  price,
+  readContract,
+  userMintedAmount,
+  wallet,
 }) {
   const [amount, setAmount] = useState(0);
   const [check, setCheck] = useState(false);
@@ -29,6 +28,7 @@ function Mint({
       toastId: "custom-id-yes",
     });
   };
+
   const mint = async (mintAmount) => {
     setCheck(!check);
     if (wallet === "Connect a Wallet") {
@@ -58,9 +58,17 @@ function Mint({
       }
     }
   };
+
+  const initialFun = async () => {
+    await connection();
+    await readContract();
+    await getTokens();
+  };
+
   useEffect(() => {
     if (window.ethereum) {
       window.ethereum.on("chainChanged", async () => {
+        console.log("Disconnect");
         await disconnect();
       });
       window.ethereum.on("accountsChanged", async () => {
@@ -71,18 +79,14 @@ function Mint({
       });
     }
   });
-  const initialFun = async () => {
-    await connection();
-    await readContract();
-    await getTokens();
-  };
+
   useEffect(() => {
     initialFun();
   }, []);
 
   return (
-    <div className="px-32">
-      <div className="sm:flex border-2 border-purple-800  rounded text-white">
+    <div className="lg:px-32 md:px-24 px-10 ">
+      <div className="sm:flex border-2 border-purple-800 mt-14 mb-28  rounded text-white">
         <div className="sm:w-2/5">
           <img src={profileImage} alt="profile" />
         </div>
@@ -90,9 +94,11 @@ function Mint({
           <h1 className="flex justify-center uppercase text-2xl md:text-3xl xl:text-4xl font-extrabold">
             Total Minted
           </h1>
-          <p className="flex justify-center pt-2 pb-2">{userMintedAmount}/3</p>
+          <p className="flex justify-center pt-2 pb-2">
+            {userMintedAmount}/{maxMintAmount}
+          </p>
           <p className="flex justify-center">
-            The Price is 0.01eth ETH + Gas Fee
+            The Price is {price}eth ETH + Gas Fee
           </p>
 
           <div className="px-10 md:px-16 lg:px-20 xl:px-36 pt-1">
@@ -130,7 +136,7 @@ function Mint({
           </div>
         </div>
       </div>
-      <div className="text-white justify-center px-10 py-10 grid text-center lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+      <div className="text-white justify-center px-10 py-10 grid text-center xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1">
         {images.map((url, key) => {
           return (
             <div key={key} className="border border-md">

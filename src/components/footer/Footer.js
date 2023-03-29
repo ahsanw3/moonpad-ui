@@ -1,11 +1,13 @@
 const Footer = () => {
   return (
-    <div className="py-5">
+    <div className="py-5 text-white h-full">
       <div className="border-b-[1px] mb-4">
         <h1 className="uppercase text-3xl font-extrabold flex justify-center py-5 md:text-4xl xl:text-5xl">
           Moonpad
         </h1>
-        <p className="uppercase text-xs flex justify-center pb-3 md:text-sm xl:text-base">Contact Us</p>
+        <p className="uppercase text-xs flex justify-center pb-3 md:text-sm xl:text-base">
+          Contact Us
+        </p>
         <p className="font-bold text-xs flex justify-center pb-3 md:text-sm xl:text-base">
           info@dingbotnft.com
         </p>
@@ -43,8 +45,10 @@ const Footer = () => {
           </svg>
         </div>
       </div>
-      <p className="text-[10px] flex justify-center md:text-xs xl:text-sm">Copyright © 2021. All rights reserved.</p>
+      <p className="text-[10px] flex justify-center md:text-xs xl:text-sm">
+        Copyright © 2021. All rights reserved.
+      </p>
     </div>
-  )
-}
-export default Footer
+  );
+};
+export default Footer;
