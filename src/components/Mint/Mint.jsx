@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { toast } from "react-toastify";
 
@@ -7,17 +7,7 @@ import profileImage from "../../images/arcane.jpg";
 
 import "react-toastify/dist/ReactToastify.css";
 
-function Mint({
-  connection,
-  disconnect,
-  getTokens,
-  images,
-  maxMintAmount,
-  price,
-  readContract,
-  userMintedAmount,
-  wallet,
-}) {
+const Mint = forwardRef((props, ref) => {
   const [amount, setAmount] = useState(0);
   const [check, setCheck] = useState(false);
 
@@ -31,11 +21,11 @@ function Mint({
 
   const mint = async (mintAmount) => {
     setCheck(!check);
-    if (wallet === "Connect a Wallet") {
+    if (props.wallet === "Connect a Wallet") {
       notify("Connect a Wallet First!");
       return;
     } else {
-      await readContract();
+      await props.readContract();
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
@@ -45,7 +35,7 @@ function Mint({
       );
       try {
         const response = await contract.mint(mintAmount, {
-          value: ethers.utils.parseEther((price * mintAmount).toString()),
+          value: ethers.utils.parseEther((props.price * mintAmount).toString()),
         });
         await response.wait();
         toast.success("Transaction Successful.", {
@@ -60,22 +50,22 @@ function Mint({
   };
 
   const initialFun = async () => {
-    await connection();
-    await readContract();
-    await getTokens();
+    await props.connection();
+    await props.readContract();
+    await props.getTokens();
   };
 
   useEffect(() => {
     if (window.ethereum) {
       window.ethereum.on("chainChanged", async () => {
         console.log("Disconnect");
-        await disconnect();
+        await props.disconnect();
       });
       window.ethereum.on("accountsChanged", async () => {
-        await disconnect();
-        await connection();
-        await readContract();
-        await getTokens();
+        await props.disconnect();
+        await props.connection();
+        await props.readContract();
+        await props.getTokens();
       });
     }
   });
@@ -85,8 +75,8 @@ function Mint({
   }, []);
 
   return (
-    <div className="lg:px-32 md:px-24 px-10 ">
-      <div className="sm:flex border-2 border-purple-800 mt-14 mb-28  rounded text-white">
+    <div ref={ref} className="lg:px-32 md:px-24 px-10 ">
+      <div className="sm:flex border-2 border-purple-800  mb-28  rounded text-white">
         <div className="sm:w-2/5">
           <img src={profileImage} alt="profile" />
         </div>
@@ -95,10 +85,10 @@ function Mint({
             Total Minted
           </h1>
           <p className="flex justify-center pt-2 pb-2">
-            {userMintedAmount}/{maxMintAmount}
+            {props.userMintedAmount}/{props.maxMintAmount}
           </p>
           <p className="flex justify-center">
-            The Price is {price}eth ETH + Gas Fee
+            The Price is {props.price}eth ETH + Gas Fee
           </p>
 
           <div className="px-10 md:px-16 lg:px-20 xl:px-36 pt-1">
@@ -126,8 +116,8 @@ function Mint({
               onClick={async () => {
                 setCheck(!check);
                 await mint(amount);
-                await readContract();
-                await getTokens();
+                await props.readContract();
+                await props.getTokens();
               }}
               className="bg-violet-900 px-14 py-2 rounded-sm uppercase"
             >
@@ -137,7 +127,7 @@ function Mint({
         </div>
       </div>
       <div className="text-white justify-center px-10 py-10 grid text-center xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 grid-cols-1">
-        {images.map((url, key) => {
+        {props.images.map((url, key) => {
           return (
             <div key={key} className="border border-md">
               <img key={key} alt="Tokens images" src={url} />
@@ -147,6 +137,6 @@ function Mint({
       </div>
     </div>
   );
-}
+});
 
 export default Mint;

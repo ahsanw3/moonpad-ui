@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 
 import TeamMember from "./TeamMember";
 import { teamMembers } from "../../content/team";
+import { forwardRef } from "react";
 
-const Team = () => {
+const Team = forwardRef((props, ref) => {
   var settings = {
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -28,7 +29,10 @@ const Team = () => {
     ],
   };
   return (
-    <div className="pb-5 pt-8 sm:pb-10 sm:pt-14 lg:pb-14 lg:pt-20 2xl:pb-20 2xl:pt-28 px-7">
+    <div
+      ref={ref}
+      className="pb-5 pt-8 sm:pb-10 sm:pt-14 lg:pb-14 lg:pt-20 2xl:pb-20 2xl:pt-28 px-7"
+    >
       <h1 className="uppercase flex justify-center pb-5 text-2xl font-extrabold md:text-3xl lg:text-4xl 2xl:text-6xl">
         Meet the Team
       </h1>
@@ -39,7 +43,7 @@ const Team = () => {
       <Carousel autoplay={true} autoplaySpeed={2500} speed={7000} {...settings}>
         {teamMembers.map((memberDetails, key) => {
           return (
-            <div>
+            <div key={key}>
               <motion.div
                 whileHover={{ scale: 0.9 }}
                 className="mx-5 my-5"
@@ -58,5 +62,5 @@ const Team = () => {
       </Carousel>
     </div>
   );
-};
+});
 export default Team;

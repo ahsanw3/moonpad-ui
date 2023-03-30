@@ -108,7 +108,7 @@ function Models() {
   animate();
   window.addEventListener("resize", resize);
 
-  return <div className="h-auto w-auto bg-black"></div>;
+  return <div className="h-auto w-auto bg-black "></div>;
 }
 
 export default Models;

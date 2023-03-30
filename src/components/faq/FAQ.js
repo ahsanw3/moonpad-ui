@@ -1,6 +1,6 @@
 import Aos from "aos";
 import { Collapse } from "antd";
-import { useEffect } from "react";
+import { forwardRef, useEffect } from "react";
 
 import FAQAnswer from "./FAQAnswer";
 import FAQuestion from "./FAQuestion";
@@ -10,13 +10,13 @@ import "aos/dist/aos.css";
 
 const { Panel } = Collapse;
 
-const FAQ = () => {
+const FAQ = forwardRef((props,ref) => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   });
 
   return (
-    <div className="py-5 md:py-10">
+    <div ref={ref} className="py-5 md:py-10">
       <div className="uppercase text-2xl font-bold md:text-3xl lg:text-4xl 2xl:text-5xl">
         <h1 className="uppercase flex justify-center">Frequently</h1>
         <h1 className="uppercase flex justify-center pb-5 sm:pb-8 lg:pb-12 2xl:pb-16">
@@ -47,5 +47,5 @@ const FAQ = () => {
       </div>
     </div>
   );
-};
+});
 export default FAQ;

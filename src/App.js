@@ -1,10 +1,9 @@
 import Aos from "aos";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ethers } from "ethers";
 import { motion } from "framer-motion";
 import { ScrollContainer } from "react-scroll-motion";
 import { ToastContainer, toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ArenaGameCard from "./components/arena_game_card/ArenaGameCard";
 import { ArenaGameCards } from "./content/ArenaGameCard";
@@ -31,6 +30,11 @@ const App = () => {
   const [price, setPrice] = useState(0);
   const [userMintedAmount, setUserMintedAmount] = useState(0);
   const [wallet, setWallet] = useState("Connect a Wallet");
+
+  const faqRef = useRef(null);
+  const teamRef = useRef(null);
+  const mintRef = useRef(null);
+  const roadmapRef = useRef(null);
 
   const { REACT_APP_CONTRACT_ADDRESS } = process.env;
   const { REACT_APP_NETWORK } = process.env;
@@ -138,84 +142,71 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
-        <ToastContainer position="top-center" autoClose={2000} />
-        <Models />
-        <Navbar
-          connection={connection}
-          disconnect={disconnect}
-          getTokens={getTokens}
-          logout={logout}
-          readContract={readContract}
-          wallet={wallet}
-        />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <>
-                <Landing />
-                <ScrollContainer>
-                  <div className="App">
-                    <motion.div className="text-white bgp bg-fixed px-5 sm:px-10 md:px-16 lg:px-24 xl:px-36 ">
-                      <Intro />
-                      <Moonriver />
-                      <div className="flex flex-wrap justify-center gap-10">
-                        {ArenaGameCards.map((cardData, key) => {
-                          return (
-                            <div
-                              data-aos="zoom-in"
-                              data-aos-duration="3000"
-                              data-aos-easing="ease-out-cubic"
-                              key={key}
-                            >
-                              <ArenaGameCard
-                                title={cardData.title}
-                                coin={cardData.coin}
-                                description={cardData.description}
-                                date={cardData.date}
-                                price={cardData.price}
-                                closeDate={cardData.closeDate}
-                                amount={cardData.amount}
-                                amountArn={cardData.amountArn}
-                                raise={cardData.raise}
-                                usd={cardData.usd}
-                                review={cardData.review}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-                      <RoadMap />
-                      <Team />
-                      <FAQ />
-                    </motion.div>
+      <ToastContainer position="top-center" autoClose={2000} />
+      <Models />
+      <Navbar
+        connection={connection}
+        disconnect={disconnect}
+        getTokens={getTokens}
+        logout={logout}
+        readContract={readContract}
+        wallet={wallet}
+        faqRef={faqRef}
+        teamRef={teamRef}
+        mintRef={mintRef}
+        roadmapRef={roadmapRef}
+      />
+      <Landing />
+      <ScrollContainer>
+        <div className="App">
+          <motion.div className="text-white bgp bg-fixed px-5 sm:px-10 md:px-16 lg:px-24 xl:px-36 ">
+            <Intro />
+            <Mint
+              connection={connection}
+              disconnect={disconnect}
+              getTokens={getTokens}
+              images={images}
+              maxMintAmount={maxMintAmount}
+              price={price}
+              readContract={readContract}
+              userMintedAmount={userMintedAmount}
+              wallet={wallet}
+              ref={mintRef}
+            />
+            <Moonriver />
+            <div className="flex flex-wrap justify-center gap-10">
+              {ArenaGameCards.map((cardData, key) => {
+                return (
+                  <div
+                    data-aos="zoom-in"
+                    data-aos-duration="3000"
+                    data-aos-easing="ease-out-cubic"
+                    key={key}
+                  >
+                    <ArenaGameCard
+                      title={cardData.title}
+                      coin={cardData.coin}
+                      description={cardData.description}
+                      date={cardData.date}
+                      price={cardData.price}
+                      closeDate={cardData.closeDate}
+                      amount={cardData.amount}
+                      amountArn={cardData.amountArn}
+                      raise={cardData.raise}
+                      usd={cardData.usd}
+                      review={cardData.review}
+                    />
                   </div>
-                </ScrollContainer>
-              </>
-            }
-          ></Route>
-          <Route
-            exact
-            path="/mint"
-            element={
-              <Mint
-                connection={connection}
-                disconnect={disconnect}
-                getTokens={getTokens}
-                images={images}
-                maxMintAmount={maxMintAmount}
-                price={price}
-                readContract={readContract}
-                userMintedAmount={userMintedAmount}
-                wallet={wallet}
-              />
-            }
-          ></Route>
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+                );
+              })}
+            </div>
+            <RoadMap ref={roadmapRef} />
+            <Team ref={teamRef} />
+            <FAQ ref={faqRef} />
+          </motion.div>
+        </div>
+      </ScrollContainer>
+      <Footer />
     </>
   );
 };
