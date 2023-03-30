@@ -53,7 +53,6 @@ const Navbar = ({
           <li className="p-4 ">
             <button onClick={teamClickHandle}>TEAM</button>
           </li>
-          <li className="p-4">LAUNCHPAD</li>
           <li className="p-4">
             <button onClick={faqClickHandle}>FAQ</button>
           </li>
@@ -78,7 +77,6 @@ const Navbar = ({
           </li>
           <li className="p-4 border-b border-gray-600">ROADMAP</li>
           <li className="p-4 border-b border-gray-600">TEAM</li>
-          <li className="p-4 border-b border-gray-600">LAUNCHPAD</li>
           <li className="p-4">FAQ</li>
         </ul>
         <button

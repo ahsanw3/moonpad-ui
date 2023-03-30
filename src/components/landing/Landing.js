@@ -28,24 +28,30 @@ const Landing = () => {
           </p>
         </div>
         <div className="flex justify-center gap-5 py-10 px-20 space-x-2 w-">
-          <button
-            type="button "
-            className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow small"
-          >
-            Projects{" "}
-          </button>
-          <button
-            type="button "
-            className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow small"
-          >
-            Telegram{" "}
-          </button>
-          <button
-            type="button "
-            className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow small"
-          >
-            Apply{" "}
-          </button>
+          <a href="https://google.com" target="_blank" rel="noreferrer">
+            <button
+              type="button "
+              className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow small"
+            >
+              Projects{" "}
+            </button>
+          </a>
+          <a href="https://google.com" target="_blank" rel="noreferrer">
+            <button
+              type="button "
+              className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow small"
+            >
+              Telegram{" "}
+            </button>
+          </a>
+          <a href="https://google.com" target="_blank" rel="noreferrer">
+            <button
+              type="button "
+              className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow small"
+            >
+              Apply{" "}
+            </button>
+          </a>
         </div>
       </div>
     </>

@@ -5,10 +5,10 @@ const Footer = () => {
     <div className="py-5 text-white h-full">
       <div className="border-b-[1px] mb-4">
         <h1 className="uppercase text-3xl font-extrabold flex justify-center py-5 md:text-4xl xl:text-5xl">
-          Moonpad
+          {footerDetails.title}
         </h1>
         <p className="uppercase text-xs flex justify-center pb-3 md:text-sm xl:text-base">
-          Contact Us
+          {footerDetails.heading}
         </p>
         <p className="font-bold text-xs flex justify-center pb-3 md:text-sm xl:text-base">
           {footerDetails.email}
