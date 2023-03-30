@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import FAQAnswer from "./FAQAnswer";
 import FAQuestion from "./FAQuestion";
+import { faq } from "../../content/faq";
 
 import "aos/dist/aos.css";
 
@@ -29,64 +30,18 @@ const FAQ = () => {
           className="border-b-[1px]"
         >
           <Collapse bordered={false} ghost={true}>
-            <Panel
-              className="bg-slate-50/10 border-[1px]"
-              showArrow={false}
-              header={<FAQuestion question={"How do I Mint Mpad Chimp"} />}
-              key="1"
-            >
-              <FAQAnswer
-                answer={
-                  "A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world. "
-                }
-              />
-            </Panel>
-            <Panel
-              className="bg-slate-50/10 border-[1px]"
-              showArrow={false}
-              header={
-                <FAQuestion
-                  question={"How Many Chimp is Available To Be Minted"}
-                />
-              }
-              key="2"
-            >
-              <FAQAnswer
-                answer={
-                  "A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world. "
-                }
-              />
-            </Panel>
-            <Panel
-              className="bg-slate-50/10 border-[1px]"
-              showArrow={false}
-              header={<FAQuestion question={"How Much Does A Chimp Cost?"} />}
-              key="3"
-            >
-              <FAQAnswer
-                answer={
-                  "A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world. "
-                }
-              />
-            </Panel>
-            <Panel
-              className="bg-slate-50/10 border-[1px]"
-              showArrow={false}
-              header={
-                <FAQuestion
-                  question={
-                    "Will The Community Wallet Continue To Get Additional Funds"
-                  }
-                />
-              }
-              key="4"
-            >
-              <FAQAnswer
-                answer={
-                  "A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world. "
-                }
-              />
-            </Panel>
+            {faq.map((faq, key) => {
+              return (
+                <Panel
+                  className="bg-slate-50/10 border-[1px]"
+                  showArrow={false}
+                  header={<FAQuestion question={faq.qustion} />}
+                  key={faq.key}
+                >
+                  <FAQAnswer answer={faq.answer} />
+                </Panel>
+              );
+            })}
           </Collapse>
         </div>
       </div>
