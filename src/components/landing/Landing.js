@@ -33,15 +33,15 @@ const Landing = () => {
               type="button "
               className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow small"
             >
-              Projects{" "}
+              Projects
             </button>
           </a>
-          <a href="https://google.com" target="_blank" rel="noreferrer">
+          <a href="https://telegram.org" target="_blank" rel="noreferrer">
             <button
               type="button "
               className=" hover:bg-gray-100 hover:text-red-900 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow small"
             >
-              Telegram{" "}
+              Telegram
             </button>
           </a>
           <a href="https://google.com" target="_blank" rel="noreferrer">
